@@ -99,7 +99,7 @@
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
 
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)insertNewObject:(id)sender
