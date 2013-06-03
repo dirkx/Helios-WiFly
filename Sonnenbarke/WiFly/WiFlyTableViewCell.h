@@ -16,5 +16,6 @@
 @property (strong,nonatomic) IBOutlet UIImageView * battView, * signalView;
 @property (strong,nonatomic) IBOutlet UILabel * mainTextLabel;
 @property (strong,nonatomic) IBOutlet UILabel * extraLabel;
+@property (strong,nonatomic) IBOutlet UILabel * topLabel;
 +(CGFloat)height;
 @end

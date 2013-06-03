@@ -209,8 +209,9 @@ withFilterContext:(id)filterContext
     dev.lastSeen = [NSDate date];
     
     dev.rssi = packet->rssi;
-    
-
+    dev.port = htons(packet->port);
+    dev.ipAddressAsString = [GCDAsyncUdpSocket hostFromAddress:address];
+                             
     dev.timeStr = [[NSString alloc] initWithCString:packet->timeStr
                                            length:sizeof(packet->timeStr)
                                          encoding:NSASCIIStringEncoding];

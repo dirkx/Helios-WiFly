@@ -58,11 +58,13 @@ CGFloat height = 0;
 
 -(void)setDev:(WiFly *)object {
     self.mainTextLabel.text = [object device];
-    self.extraLabel.text = [NSString stringWithFormat:@"%@ / %@",
+    self.topLabel.text = [NSString stringWithFormat:@"%@ / %@:%d",
                                  [object macAddressAsString],
-                                 [object firmware]];
-
+                            [object ipAddressAsString], [object port]];
     
+    self.extraLabel.text = [NSString stringWithFormat:@"%@",
+                            [object firmware]];
+
     [self.battView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"bat%d",
                                                 (int)(object.batteryCharge * 3+0.1)]]];
     
