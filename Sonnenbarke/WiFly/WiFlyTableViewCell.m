@@ -70,7 +70,8 @@ CGFloat height = 0;
     
     [self.signalView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"signal%d",
                                                  (int)(object.signal * 9 +0.1)]]];
-
+    
+    [self.blinkerView ping];
 }
 
 @end
