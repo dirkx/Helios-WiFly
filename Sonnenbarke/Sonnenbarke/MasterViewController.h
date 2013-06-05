@@ -11,7 +11,7 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController <LicenseViewControllerDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 -(IBAction)infoButtonTapped:(id)sender;

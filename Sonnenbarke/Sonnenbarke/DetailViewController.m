@@ -108,7 +108,7 @@
     // currently only shown on the iPad - so safe to do the
     // popup without much ado.
     //
-    LicenseViewController * vc = [[LicenseViewController alloc] init];
+    LicenseViewController * vc = [[LicenseViewController alloc] initWithDelegate:self];
     CGRect screen = CGRectInset([[UIScreen mainScreen] bounds], 32,32);
     
     self.infoPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
@@ -118,6 +118,10 @@
                                                 inView:self.view
                               permittedArrowDirections:UIPopoverArrowDirectionDown
                                               animated:YES];
+}
+
+-(void)thanksButtonPressed:(id)sender {
+    [self.infoPopoverController dismissPopoverAnimated:YES];
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LicenseViewControllerDelegate <NSObject>
+-(void)thanksButtonPressed:(id)sender;
+@end
+
 @interface LicenseViewController : UIViewController
 
+@property (assign, nonatomic) id delegate;
 @property (strong, nonatomic) IBOutlet UIWebView * rtfTextField;
 @property (strong, nonatomic) IBOutlet UIImageView * logoImage;
 
+-(id)initWithDelegate:(id)aDelegate;
 -(IBAction)thanksButton:(id)sender;
 @end

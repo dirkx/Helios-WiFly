@@ -168,8 +168,12 @@
 }
 
 -(void)infoButtonTapped:(id)sender {
-    LicenseViewController * vc = [[LicenseViewController alloc] init];
+    LicenseViewController * vc = [[LicenseViewController alloc] initWithDelegate:self];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)thanksButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

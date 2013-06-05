@@ -13,6 +13,12 @@
 
 @implementation LicenseViewController
 
+-(id)initWithDelegate:(id)aDelegate {
+    self = [self init];
+    self.delegate = aDelegate;
+    return self;
+}
+
 -(id)init {
     return [self initWithNibName:[[self class] description] bundle:[NSBundle mainBundle]];
 }
@@ -30,7 +36,7 @@
 {
     [super viewDidLoad];
     
-    NSURL *rtfUrl = [[NSBundle mainBundle] URLForResource:@"credits" withExtension:@".rtf"];
+    NSURL *rtfUrl = [[NSBundle mainBundle] URLForResource:@"credits" withExtension:@"rtf"];
 
     [self.rtfTextField loadRequest:[NSURLRequest requestWithURL:rtfUrl]];
 }
@@ -61,5 +67,12 @@
 }
 
 -(IBAction)thanksButton:(id)sender {
+    if (![self.delegate respondsToSelector:@selector(thanksButtonPressed:)])
+        return;
+    
+    [self.delegate performSelector:@selector(thanksButtonPressed:)
+                          onThread:[NSThread mainThread]
+                        withObject:sender
+                     waitUntilDone:NO];
 }
 @end
