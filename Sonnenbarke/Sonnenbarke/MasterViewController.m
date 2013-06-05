@@ -167,4 +167,12 @@
     return [WiFlyTableViewCell height];
 }
 
+-(void)infoButtonTapped:(id)sender {
+    LicenseViewController * vc = [[LicenseViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
 @end

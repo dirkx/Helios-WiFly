@@ -7,9 +7,12 @@
 //
 
 #import "DetailViewController.h"
+#import "LicenseViewController.h"
+#import "HeliosListener.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (strong, nonatomic) UIPopoverController *infoPopoverController;
 - (void)configureView;
 @end
 
@@ -20,8 +23,16 @@
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
+        [[NSNotificationCenter defaultCenter] removeObserver:nil
+                                                        name:kHeliosDeviceUpdated
+                                                      object:_detailItem];
+
         _detailItem = newDetailItem;
-        
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceUpdated:)
+                                                     name:kHeliosDeviceUpdated
+                                                   object:_detailItem];
+
         // Update the view.
         [self configureView];
     }
@@ -38,6 +49,19 @@
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
     }
+
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:nil name:kHeliosDeviceUpdated object:nil];
+}
+
+-(void)deviceUpdated:(NSNotification *)notif {
+    HeliosGadget * dev  = (HeliosGadget *)notif.object;
+    
+    self.colourShowArea.backgroundColor = [dev color];
+    
+    NSLog(@"updated %@ %f,%f,%f", dev, dev.red, dev.green, dev.blue);
 }
 
 - (void)viewDidLoad
@@ -78,4 +102,25 @@
     self.masterPopoverController = nil;
 }
 
+#pragma  UI interaction
+
+-(IBAction)infoButtonTapped:(id)sender {
+    // currently only shown on the iPad - so safe to do the
+    // popup without much ado.
+    //
+    LicenseViewController * vc = [[LicenseViewController alloc] init];
+    CGRect screen = CGRectInset([[UIScreen mainScreen] bounds], 32,32);
+    
+    self.infoPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
+    [self.infoPopoverController setPopoverContentSize:screen.size];
+    
+    [self.infoPopoverController presentPopoverFromRect:((UIButton *)sender).frame
+                                                inView:self.view
+                              permittedArrowDirections:UIPopoverArrowDirectionDown
+                                              animated:YES];
+}
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
 @end
