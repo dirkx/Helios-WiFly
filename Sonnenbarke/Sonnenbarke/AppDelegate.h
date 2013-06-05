@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "WiFlyDiscoverer.h"
+#import "HeliosListener.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {    
 }
 
 @property (strong, nonatomic) WiFlyDiscoverer * discoverer;
+@property (strong, nonatomic) HeliosListener * helios;
 
 @property (strong, nonatomic) UIWindow *window;
 

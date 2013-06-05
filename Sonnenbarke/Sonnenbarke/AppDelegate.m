@@ -22,6 +22,7 @@
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
     self.discoverer = [[WiFlyDiscoverer alloc] init];
+    self.helios = [[HeliosListener alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
