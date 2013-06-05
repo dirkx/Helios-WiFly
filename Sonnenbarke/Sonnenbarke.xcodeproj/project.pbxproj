@@ -43,6 +43,8 @@
 		326287051759451600F8BA17 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326287041759451600F8BA17 /* CFNetwork.framework */; };
 		326287071759451D00F8BA17 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326287061759451D00F8BA17 /* Security.framework */; };
 		3265B438175BC7BA0045A64C /* WiFlyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3265B437175BC7BA0045A64C /* WiFlyTableViewCell.xib */; };
+		3268AE60175CF34000802530 /* HeliosListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 3268AE5F175CF34000802530 /* HeliosListener.m */; };
+		3268AE63175CF44B00802530 /* HeliosGadget.m in Sources */ = {isa = PBXBuildFile; fileRef = 3268AE62175CF44B00802530 /* HeliosGadget.m */; };
 		32AE9C82175BFB7800A758EA /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 32AE9C6C175BFB7800A758EA /* About.txt */; };
 		32AE9C88175BFB7800A758EA /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AE9C79175BFB7800A758EA /* ContextFilterLogFormatter.m */; };
 		32AE9C89175BFB7800A758EA /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AE9C7B175BFB7800A758EA /* DispatchQueueLogFormatter.m */; };
@@ -54,6 +56,10 @@
 		32AE9C90175C000800A758EA /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AE9C6E175BFB7800A758EA /* DDAbstractDatabaseLogger.m */; };
 		32AE9C91175C000800A758EA /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AE9C70175BFB7800A758EA /* DDASLLogger.m */; };
 		32AE9C92175C000800A758EA /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AE9C72175BFB7800A758EA /* DDFileLogger.m */; };
+		32B844EF175E202F00984172 /* BlinkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B844EE175E202F00984172 /* BlinkerView.m */; };
+		32BBF1E4175CCCCF00BE0D90 /* LicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BBF1E2175CCCCF00BE0D90 /* LicenseViewController.m */; };
+		32BBF1E5175CCCCF00BE0D90 /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32BBF1E3175CCCCF00BE0D90 /* LicenseViewController.xib */; };
+		32BBF1E7175CCD7500BE0D90 /* open-source-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32BBF1E6175CCD7500BE0D90 /* open-source-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +108,10 @@
 		326287041759451600F8BA17 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		326287061759451D00F8BA17 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3265B437175BC7BA0045A64C /* WiFlyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WiFlyTableViewCell.xib; path = WiFly/WiFlyTableViewCell.xib; sourceTree = "<group>"; };
+		3268AE5E175CF34000802530 /* HeliosListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeliosListener.h; path = Sonnenbarke/HeliosListener.h; sourceTree = "<group>"; };
+		3268AE5F175CF34000802530 /* HeliosListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeliosListener.m; path = Sonnenbarke/HeliosListener.m; sourceTree = "<group>"; };
+		3268AE61175CF44B00802530 /* HeliosGadget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeliosGadget.h; sourceTree = "<group>"; };
+		3268AE62175CF44B00802530 /* HeliosGadget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeliosGadget.m; sourceTree = "<group>"; };
 		32AE9C60175BFB7800A758EA /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = ../CocoaAsyncSocket/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
 		32AE9C61175BFB7800A758EA /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = ../CocoaAsyncSocket/GCD/GCDAsyncSocket.m; sourceTree = "<group>"; };
 		32AE9C62175BFB7800A758EA /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = ../CocoaAsyncSocket/GCD/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
@@ -122,6 +132,12 @@
 		32AE9C7A175BFB7800A758EA /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		32AE9C7B175BFB7800A758EA /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		32AE9C7C175BFB7800A758EA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		32B844ED175E202F00984172 /* BlinkerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlinkerView.h; path = WiFly/BlinkerView.h; sourceTree = "<group>"; };
+		32B844EE175E202F00984172 /* BlinkerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlinkerView.m; path = WiFly/BlinkerView.m; sourceTree = "<group>"; };
+		32BBF1E1175CCCCF00BE0D90 /* LicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LicenseViewController.h; path = LicenseViewController/LicenseViewController.h; sourceTree = "<group>"; };
+		32BBF1E2175CCCCF00BE0D90 /* LicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LicenseViewController.m; path = LicenseViewController/LicenseViewController.m; sourceTree = "<group>"; };
+		32BBF1E3175CCCCF00BE0D90 /* LicenseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LicenseViewController.xib; path = LicenseViewController/LicenseViewController.xib; sourceTree = "<group>"; };
+		32BBF1E6175CCD7500BE0D90 /* open-source-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open-source-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +180,9 @@
 		326284D91759406F00F8BA17 = {
 			isa = PBXGroup;
 			children = (
-				32AE9C8B175BFB7D00A758EA /* GCDAsyncSocket */,
+				32BBF1DF175CCC6700BE0D90 /* Stuff */,
 				32628514175940C400F8BA17 /* WiFlyComms */,
+				3268AE5D175CF32300802530 /* HeliosComms */,
 				326284EB1759406F00F8BA17 /* Sonnenbarke */,
 				326284E41759406F00F8BA17 /* Frameworks */,
 				326284E31759406F00F8BA17 /* Products */,
@@ -236,8 +253,21 @@
 				3214F3C2175A000400D7A55C /* WiFlyTableViewCell.h */,
 				3214F3C3175A000400D7A55C /* WiFlyTableViewCell.m */,
 				3265B437175BC7BA0045A64C /* WiFlyTableViewCell.xib */,
+				32B844ED175E202F00984172 /* BlinkerView.h */,
+				32B844EE175E202F00984172 /* BlinkerView.m */,
 			);
 			name = WiFlyComms;
+			sourceTree = "<group>";
+		};
+		3268AE5D175CF32300802530 /* HeliosComms */ = {
+			isa = PBXGroup;
+			children = (
+				3268AE5E175CF34000802530 /* HeliosListener.h */,
+				3268AE5F175CF34000802530 /* HeliosListener.m */,
+				3268AE61175CF44B00802530 /* HeliosGadget.h */,
+				3268AE62175CF44B00802530 /* HeliosGadget.m */,
+			);
+			name = HeliosComms;
 			sourceTree = "<group>";
 		};
 		32AE9C64175BFB7800A758EA /* Vendor */ = {
@@ -290,6 +320,26 @@
 				32AE9C64175BFB7800A758EA /* Vendor */,
 			);
 			name = GCDAsyncSocket;
+			sourceTree = "<group>";
+		};
+		32BBF1DF175CCC6700BE0D90 /* Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				32BBF1E0175CCC7500BE0D90 /* LicenseViewController */,
+				32AE9C8B175BFB7D00A758EA /* GCDAsyncSocket */,
+			);
+			name = Stuff;
+			sourceTree = "<group>";
+		};
+		32BBF1E0175CCC7500BE0D90 /* LicenseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				32BBF1E6175CCD7500BE0D90 /* open-source-icon.png */,
+				32BBF1E1175CCCCF00BE0D90 /* LicenseViewController.h */,
+				32BBF1E2175CCCCF00BE0D90 /* LicenseViewController.m */,
+				32BBF1E3175CCCCF00BE0D90 /* LicenseViewController.xib */,
+			);
+			name = LicenseViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +420,8 @@
 				3265B438175BC7BA0045A64C /* WiFlyTableViewCell.xib in Resources */,
 				32AE9C82175BFB7800A758EA /* About.txt in Resources */,
 				32AE9C8A175BFB7800A758EA /* README.txt in Resources */,
+				32BBF1E5175CCCCF00BE0D90 /* LicenseViewController.xib in Resources */,
+				32BBF1E7175CCD7500BE0D90 /* open-source-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +448,10 @@
 				32AE9C90175C000800A758EA /* DDAbstractDatabaseLogger.m in Sources */,
 				32AE9C91175C000800A758EA /* DDASLLogger.m in Sources */,
 				32AE9C92175C000800A758EA /* DDFileLogger.m in Sources */,
+				32BBF1E4175CCCCF00BE0D90 /* LicenseViewController.m in Sources */,
+				3268AE60175CF34000802530 /* HeliosListener.m in Sources */,
+				3268AE63175CF44B00802530 /* HeliosGadget.m in Sources */,
+				32B844EF175E202F00984172 /* BlinkerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +513,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -472,6 +528,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -489,7 +546,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -497,6 +554,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -509,6 +567,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sonnenbarke/Sonnenbarke-Prefix.pch";
 				INFOPLIST_FILE = "Sonnenbarke/Sonnenbarke-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -520,6 +579,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sonnenbarke/Sonnenbarke-Prefix.pch";
 				INFOPLIST_FILE = "Sonnenbarke/Sonnenbarke-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
