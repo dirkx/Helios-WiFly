@@ -55,7 +55,7 @@
         
     state+=1;
     
-    steps = MIN(36,MAX(6,self.expectedUpdateCycleInSeconds*3));
+    steps = MIN(300,MAX(6,self.expectedUpdateCycleInSeconds*24));
     if (state < steps)
         loop = [NSTimer scheduledTimerWithTimeInterval:(state < 4) ? 0.1 : (self.expectedUpdateCycleInSeconds/steps)
                                                 target:self

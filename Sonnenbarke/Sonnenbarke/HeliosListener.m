@@ -7,6 +7,7 @@
 //
 
 #import "HeliosListener.h"
+#import "GCDAsyncUdpSocket.h"
 
 #define HELIOSPORT (12345)
 
@@ -19,9 +20,12 @@ typedef struct {
 }  __attribute__((packed)) heliosPacket;
 
 NSString * kHeliosDeviceUpdated = @"HeliosDeviceUpdated";
+NSString * kHeliosDeviceLost = @"HeliosDeviceLost";
 
 @interface HeliosListener () {
     GCDAsyncUdpSocket *udpSocket;
+    NSMutableSet * devices;
+    NSTimer * deviceLoop;
 }
 @end
 
@@ -38,6 +42,8 @@ NSString * kHeliosDeviceUpdated = @"HeliosDeviceUpdated";
     
     udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self
                                               delegateQueue:dispatch_get_main_queue()];
+    [udpSocket setIPv6Enabled:NO];
+
     NSError *error = nil;
     
     if (![udpSocket bindToPort:port error:&error])
@@ -51,9 +57,36 @@ NSString * kHeliosDeviceUpdated = @"HeliosDeviceUpdated";
         return nil;
     }
     
+    devices = [[NSMutableSet alloc] initWithCapacity:20];
+    
+    deviceLoop = [NSTimer scheduledTimerWithTimeInterval:300
+                                                  target:self
+                                                selector:@selector(checkLostDevices:)
+                                                userInfo:nil
+                                                 repeats:YES];
+    
     return self;
 }
 
+-(void)checkLostDevices:(NSTimer *)timer {
+    NSMutableSet * toRemove = [[NSMutableSet alloc] initWithCapacity:5];
+    for(HeliosGadget * dev in devices) {
+        
+        if (-[dev.lastSeen timeIntervalSinceNow] > 300)
+            [toRemove addObject:dev];
+    }
+    
+    for(HeliosGadget * dev in toRemove) {
+        [devices removeObject:dev];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kHeliosDeviceLost
+                                                            object:dev];
+    }
+}
+
+-(void)dealloc {
+    deviceLoop = nil;
+}
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock
    didReceiveData:(NSData *)data
@@ -78,7 +111,17 @@ withFilterContext:(id)filterContext
         return;
     }
     
-    HeliosGadget * dev = [[HeliosGadget alloc] init];
+    HeliosGadget * tmp =[[HeliosGadget alloc] initWithAddress:address];
+    
+    HeliosGadget * dev = [devices member:tmp];
+    if (!dev) {
+        dev = tmp; // new device.
+
+        [devices addObject:dev];
+//        NSLog(@"New device %@",[GCDAsyncUdpSocket hostFromAddress:address]);
+    } else {
+//        NSLog(@"Update device %@",[GCDAsyncUdpSocket hostFromAddress:address]);
+    }
     
     dev.lux = 1.0 * ntohs(packet->lux);
     dev.cct = 1.0 * ntohs(packet->cct);
@@ -95,10 +138,10 @@ withFilterContext:(id)filterContext
     
     dev.temp = 1.0 * ntohs(packet->temp);
 
+    dev.lastSeen = [NSDate date];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:kHeliosDeviceUpdated
                                                         object:dev];
-    
-    NSLog(@"Got Lux=%f and cct=%f", dev.lux, dev.cct);
 }
 
 

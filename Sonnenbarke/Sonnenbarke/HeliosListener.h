@@ -11,6 +11,7 @@
 #import "HeliosGadget.h"
 
 extern NSString * kHeliosDeviceUpdated;
+extern NSString * kHeliosDeviceLost;
 
 @interface HeliosListener : NSObject <GCDAsyncUdpSocketDelegate>
 

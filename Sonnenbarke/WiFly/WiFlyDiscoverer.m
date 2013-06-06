@@ -104,6 +104,8 @@ typedef struct {
     
     udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self
                                               delegateQueue:dispatch_get_main_queue()];
+    [udpSocket setIPv6Enabled:NO];
+    
     NSError *error = nil;
     
     if (![udpSocket bindToPort:port error:&error])

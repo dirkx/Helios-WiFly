@@ -32,6 +32,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceUpdated:)
                                                      name:kHeliosDeviceUpdated
                                                    object:_detailItem];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceLost:)
+                                                     name:kHeliosDeviceLost
+                                                   object:_detailItem];
 
         // Update the view.
         [self configureView];
@@ -54,6 +58,11 @@
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:nil name:kHeliosDeviceUpdated object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:nil name:kHeliosDeviceLost object:nil];
+}
+
+-(void)deviceLost:(NSNotification *)notif {
+    self.detailDescriptionLabel.text = @"Lost";
 }
 
 -(void)deviceUpdated:(NSNotification *)notif {

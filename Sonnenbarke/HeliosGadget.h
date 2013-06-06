@@ -10,9 +10,12 @@
 
 @interface HeliosGadget : NSObject
 
+-(id)initWithAddress:(NSData *)address;
+
 @property (assign,nonatomic) double lux, cct;
 @property (assign,nonatomic) double red,green,blue;
 @property (assign,nonatomic) double temp;
+@property (strong,nonatomic) NSDate * lastSeen;
 
 -(UIColor *)color;
 @end
