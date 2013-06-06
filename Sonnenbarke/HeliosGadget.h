@@ -7,15 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NetDevice.h"
 
-@interface HeliosGadget : NSObject
-
--(id)initWithAddress:(NSData *)address;
+@interface HeliosGadget : NetDevice;
 
 @property (assign,nonatomic) double lux, cct;
 @property (assign,nonatomic) double red,green,blue;
 @property (assign,nonatomic) double temp;
-@property (strong,nonatomic) NSDate * lastSeen;
 
 -(UIColor *)color;
 @end

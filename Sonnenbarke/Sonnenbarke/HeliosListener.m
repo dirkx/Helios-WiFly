@@ -140,6 +140,7 @@ withFilterContext:(id)filterContext
 
     dev.lastSeen = [NSDate date];
     
+    NSLog(@"Update %@", dev);
     [[NSNotificationCenter defaultCenter] postNotificationName:kHeliosDeviceUpdated
                                                         object:dev];
 }

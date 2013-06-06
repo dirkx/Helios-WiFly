@@ -7,14 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NetDevice.h"
 
-@interface WiFly : NSObject
+@interface WiFly : NetDevice;
+
 @property (assign, nonatomic) unsigned long long macAddress;
 @property (assign, nonatomic) NSInteger channel, rssi, timeoutInSeconds, port;
 @property (assign, nonatomic) double batteryVoltage, batteryCharge, signal;
 @property (strong, nonatomic) NSString * firmware, * device, * timeStr;
 @property (strong, nonatomic) NSArray * sendors, * gpio;
-@property (strong, nonatomic) NSDate * rtc, *lastSeen, *bootTime;
+@property (strong, nonatomic) NSDate * rtc, *bootTime;
 @property (strong, nonatomic) NSString * ipAddressAsString;
 
 +(id)unitWithMac:(unsigned char[6])mac;

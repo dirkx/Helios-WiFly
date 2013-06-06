@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "WiFlyDiscoverer.h"
 #import "WiFly.h"
+#import "AppDelegate.h"
 
 #import "DetailViewController.h"
 #import "WiFlyTableViewCell.h"
@@ -151,13 +152,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDate *object = _objects[indexPath.row];
+    NetDevice *object = _objects[indexPath.row];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
 	    if (!self.detailViewController) {
 	        self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController_iPhone" bundle:nil];
 	    }
-	    self.detailViewController.detailItem = object;
-        [self.navigationController pushViewController:self.detailViewController animated:YES];
+        AppDelegate * appDelegate = [[UIApplication sharedApplication] delegate];
+        
+        self.detailViewController.detailItem = [appDelegate matchingDevice:object];
+        if (self.detailViewController.detailItem )
+            [self.navigationController pushViewController:self.detailViewController animated:YES];
+        
     } else {
         self.detailViewController.detailItem = object;
     }

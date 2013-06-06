@@ -209,6 +209,7 @@ withFilterContext:(id)filterContext
         dev.timeoutInSeconds = MAX(LOOP_CYCLE * 2,(dev.timeoutInSeconds * 5 + lastDelta)/6);
     
     dev.lastSeen = [NSDate date];
+    dev.address = address;
     
     dev.rssi = packet->rssi;
     dev.port = htons(packet->port);

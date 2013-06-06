@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TrivialGraphView.h"
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
 
@@ -14,6 +15,13 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIView *colourShowArea;
+
+@property (weak, nonatomic) IBOutlet TrivialGraphView *tempGraphView;
+@property (weak, nonatomic) IBOutlet TrivialGraphView *luxGraphView;
+
+@property (weak, nonatomic) IBOutlet UILabel *redLabel;
+@property (weak, nonatomic) IBOutlet UILabel *greenLabel;
+@property (weak, nonatomic) IBOutlet UILabel *blueLabel;
 
 -(IBAction)infoButtonTapped:(id)sender;
 @end

@@ -31,11 +31,11 @@
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceUpdated:)
                                                      name:kHeliosDeviceUpdated
-                                                   object:_detailItem];
+                                                   object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceLost:)
                                                      name:kHeliosDeviceLost
-                                                   object:_detailItem];
+                                                   object:nil];
 
         // Update the view.
         [self configureView];
@@ -48,8 +48,8 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-
+    self.greenLabel.text = self.redLabel.text = self.blueLabel.text = @"...";
+     self.detailDescriptionLabel.text = @"No device selected";
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
     }
@@ -69,6 +69,12 @@
     HeliosGadget * dev  = (HeliosGadget *)notif.object;
     
     self.colourShowArea.backgroundColor = [dev color];
+    self.redLabel.text = [NSString stringWithFormat:@"%01.02f", dev.red];
+    self.greenLabel.text = [NSString stringWithFormat:@"%01.02f", dev.green];
+    self.blueLabel.text = [NSString stringWithFormat:@"%01.02f", dev.blue];
+    
+    [self.tempGraphView addPoint:dev.temp];
+    [self.luxGraphView addPoint:dev.lux];
     
     NSLog(@"updated %@ %f,%f,%f", dev, dev.red, dev.green, dev.blue);
 }

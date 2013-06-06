@@ -42,6 +42,9 @@
 		32628517175940DD00F8BA17 /* WiFlyDiscoverer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32628516175940DD00F8BA17 /* WiFlyDiscoverer.m */; };
 		326287051759451600F8BA17 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326287041759451600F8BA17 /* CFNetwork.framework */; };
 		326287071759451D00F8BA17 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326287061759451D00F8BA17 /* Security.framework */; };
+		32630ACE17607C8F00CCB32C /* TrivialGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32630ACD17607C8F00CCB32C /* TrivialGraphView.m */; };
+		32630AD11760819D00CCB32C /* NetListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 32630AD01760819D00CCB32C /* NetListener.m */; };
+		32630AD41760826D00CCB32C /* NetDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 32630AD31760826D00CCB32C /* NetDevice.m */; };
 		3265B438175BC7BA0045A64C /* WiFlyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3265B437175BC7BA0045A64C /* WiFlyTableViewCell.xib */; };
 		3268AE60175CF34000802530 /* HeliosListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 3268AE5F175CF34000802530 /* HeliosListener.m */; };
 		3268AE63175CF44B00802530 /* HeliosGadget.m in Sources */ = {isa = PBXBuildFile; fileRef = 3268AE62175CF44B00802530 /* HeliosGadget.m */; };
@@ -107,6 +110,12 @@
 		32628516175940DD00F8BA17 /* WiFlyDiscoverer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WiFlyDiscoverer.m; path = WiFly/WiFlyDiscoverer.m; sourceTree = "<group>"; };
 		326287041759451600F8BA17 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		326287061759451D00F8BA17 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		32630ACC17607C8F00CCB32C /* TrivialGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrivialGraphView.h; sourceTree = "<group>"; };
+		32630ACD17607C8F00CCB32C /* TrivialGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrivialGraphView.m; sourceTree = "<group>"; };
+		32630ACF1760819D00CCB32C /* NetListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetListener.h; sourceTree = "<group>"; };
+		32630AD01760819D00CCB32C /* NetListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetListener.m; sourceTree = "<group>"; };
+		32630AD21760826D00CCB32C /* NetDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetDevice.h; sourceTree = "<group>"; };
+		32630AD31760826D00CCB32C /* NetDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetDevice.m; sourceTree = "<group>"; };
 		3265B437175BC7BA0045A64C /* WiFlyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WiFlyTableViewCell.xib; path = WiFly/WiFlyTableViewCell.xib; sourceTree = "<group>"; };
 		3268AE5E175CF34000802530 /* HeliosListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeliosListener.h; path = Sonnenbarke/HeliosListener.h; sourceTree = "<group>"; };
 		3268AE5F175CF34000802530 /* HeliosListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeliosListener.m; path = Sonnenbarke/HeliosListener.m; sourceTree = "<group>"; };
@@ -212,6 +221,10 @@
 		326284EB1759406F00F8BA17 /* Sonnenbarke */ = {
 			isa = PBXGroup;
 			children = (
+				32630AD21760826D00CCB32C /* NetDevice.h */,
+				32630AD31760826D00CCB32C /* NetDevice.m */,
+				32630ACF1760819D00CCB32C /* NetListener.h */,
+				32630AD01760819D00CCB32C /* NetListener.m */,
 				326284F41759406F00F8BA17 /* AppDelegate.h */,
 				326284F51759406F00F8BA17 /* AppDelegate.m */,
 				326284FD1759406F00F8BA17 /* MasterViewController.h */,
@@ -266,6 +279,8 @@
 				3268AE5F175CF34000802530 /* HeliosListener.m */,
 				3268AE61175CF44B00802530 /* HeliosGadget.h */,
 				3268AE62175CF44B00802530 /* HeliosGadget.m */,
+				32630ACC17607C8F00CCB32C /* TrivialGraphView.h */,
+				32630ACD17607C8F00CCB32C /* TrivialGraphView.m */,
 			);
 			name = HeliosComms;
 			sourceTree = "<group>";
@@ -452,6 +467,9 @@
 				3268AE60175CF34000802530 /* HeliosListener.m in Sources */,
 				3268AE63175CF44B00802530 /* HeliosGadget.m in Sources */,
 				32B844EF175E202F00984172 /* BlinkerView.m in Sources */,
+				32630ACE17607C8F00CCB32C /* TrivialGraphView.m in Sources */,
+				32630AD11760819D00CCB32C /* NetListener.m in Sources */,
+				32630AD41760826D00CCB32C /* NetDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

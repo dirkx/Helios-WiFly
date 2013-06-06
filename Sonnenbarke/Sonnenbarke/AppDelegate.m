@@ -22,8 +22,12 @@
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
     self.discoverer = [[WiFlyDiscoverer alloc] init];
-    self.helios = [[HeliosListener alloc] init];
+    listeners = [[NSMutableArray alloc] initWithCapacity:10];
     
+    // [listeners addObject:[[DoorbellListener alloc] init]];
+    // [listeners addObject:[[SMPTEClockListener alloc] init]];
+    [listeners addObject:[[HeliosListener alloc] init]];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -48,6 +52,16 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+-(id)matchingDevice:(NetDevice *)dev {
+    for(NetListener *l in listeners) {
+        NetDevice * d = [l match:dev];
+        if (d)
+            return d;
+    }
+    return nil;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
