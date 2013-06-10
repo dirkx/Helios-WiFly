@@ -14,6 +14,8 @@
 @property (assign,nonatomic) double lux, cct;
 @property (assign,nonatomic) double red,green,blue;
 @property (assign,nonatomic) double temp;
+@property (assign,nonatomic) BOOL btn;
+@property (assign,nonatomic) uint32_t gpio;
 
 -(UIColor *)color;
 @end

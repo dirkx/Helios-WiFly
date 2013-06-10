@@ -24,6 +24,8 @@
 		3214F3FB175A9C5600D7A55C /* bat2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3214F3F7175A9C5500D7A55C /* bat2.png */; };
 		3214F3FC175A9C5600D7A55C /* bat3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3214F3F8175A9C5600D7A55C /* bat3.png */; };
 		3229A0051759DE17008A3FD6 /* WiFly.m in Sources */ = {isa = PBXBuildFile; fileRef = 3229A0041759DE17008A3FD6 /* WiFly.m */; };
+		325BBB561765CCCE00DD661C /* btn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 325BBB541765CCCE00DD661C /* btn1.png */; };
+		325BBB571765CCCE00DD661C /* btn0.png in Resources */ = {isa = PBXBuildFile; fileRef = 325BBB551765CCCE00DD661C /* btn0.png */; };
 		326284E61759406F00F8BA17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326284E51759406F00F8BA17 /* UIKit.framework */; };
 		326284E81759406F00F8BA17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326284E71759406F00F8BA17 /* Foundation.framework */; };
 		326284EA1759406F00F8BA17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326284E91759406F00F8BA17 /* CoreGraphics.framework */; };
@@ -85,6 +87,8 @@
 		3214F3F8175A9C5600D7A55C /* bat3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bat3.png; path = ../WiFly/bat3.png; sourceTree = "<group>"; };
 		3229A0031759DE17008A3FD6 /* WiFly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiFly.h; path = WiFly/WiFly.h; sourceTree = "<group>"; };
 		3229A0041759DE17008A3FD6 /* WiFly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WiFly.m; path = WiFly/WiFly.m; sourceTree = "<group>"; };
+		325BBB541765CCCE00DD661C /* btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn1.png; sourceTree = "<group>"; };
+		325BBB551765CCCE00DD661C /* btn0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn0.png; sourceTree = "<group>"; };
 		326284E21759406F00F8BA17 /* Sonnenbarke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonnenbarke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		326284E51759406F00F8BA17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		326284E71759406F00F8BA17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,6 +172,8 @@
 		324F87B7175BF47900EF7521 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				325BBB541765CCCE00DD661C /* btn1.png */,
+				325BBB551765CCCE00DD661C /* btn0.png */,
 				3214F3F5175A9C5500D7A55C /* bat0.png */,
 				3214F3F6175A9C5500D7A55C /* bat1.png */,
 				3214F3F7175A9C5500D7A55C /* bat2.png */,
@@ -437,6 +443,8 @@
 				32AE9C8A175BFB7800A758EA /* README.txt in Resources */,
 				32BBF1E5175CCCCF00BE0D90 /* LicenseViewController.xib in Resources */,
 				32BBF1E7175CCD7500BE0D90 /* open-source-icon.png in Resources */,
+				325BBB561765CCCE00DD661C /* btn1.png in Resources */,
+				325BBB571765CCCE00DD661C /* btn0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -47,6 +47,7 @@
     textLabel.backgroundColor = [UIColor clearColor];
     textLabel.font = [UIFont systemFontOfSize:(self.bounds.size.height - 4) * 0.4];
     textLabel.text = @"no data";
+    self.valFormat = @"%.02f";
     
     [self addSubview:textLabel];
 }
@@ -64,12 +65,12 @@
         if (min > [n doubleValue])
             min = [n doubleValue];
     };
-    if (0) {
-        double d = MAX(3,max - min);
-        min -= d/2.0;
-        max += d/2.0;
-    }
-    textLabel.text = [NSString stringWithFormat:@"%.02f", val];
+
+    double d = MAX(10.,max - min);
+    min -= d/2.;
+    max += d/2.;
+    
+    textLabel.text = [NSString stringWithFormat:self.valFormat, val];
     [self setNeedsDisplay];
     
 }

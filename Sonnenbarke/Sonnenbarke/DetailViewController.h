@@ -23,5 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *greenLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blueLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *btnView;
+@property (weak, nonatomic) IBOutlet UILabel *bitsLabel;
+
 -(IBAction)infoButtonTapped:(id)sender;
 @end

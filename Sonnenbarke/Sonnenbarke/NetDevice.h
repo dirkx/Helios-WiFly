@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NetDevice : NSObject ;
+@interface NetDevice : NSObject;
 
 -(id)initWithAddress:(NSData *)address;
 

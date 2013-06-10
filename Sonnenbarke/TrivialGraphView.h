@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TrivialGraphView : UIView
+@property (strong,nonatomic) NSString * valFormat;
 -(void)addPoint:(double)val;
 @end

@@ -49,7 +49,9 @@
 - (void)configureView
 {
     self.greenLabel.text = self.redLabel.text = self.blueLabel.text = @"...";
-     self.detailDescriptionLabel.text = @"No device selected";
+    self.detailDescriptionLabel.text = @"No device selected";
+    self.tempGraphView.valFormat = @"%.1f˚C";
+    
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
     }
@@ -76,7 +78,18 @@
     [self.tempGraphView addPoint:dev.temp];
     [self.luxGraphView addPoint:dev.lux];
     
-    NSLog(@"updated %@ %f,%f,%f", dev, dev.red, dev.green, dev.blue);
+    [self.btnView setHighlighted:dev.btn];
+    
+    NSMutableString *str = [NSMutableString stringWithFormat:@"GPIO 0..31 = "];
+    for(int i = 0; i < 32; i++) {
+        [str appendFormat:@"%c", (dev.gpio & (1<<i)) ? '1' : '0'];
+        if (i && !(i % 4))
+            [str appendString:@" "];
+        if (i && !(i % 8))
+            [str appendString:@"- "];
+    }
+    self.bitsLabel.text = str;
+    
 }
 
 - (void)viewDidLoad

@@ -26,10 +26,12 @@
     
     // [listeners addObject:[[DoorbellListener alloc] init]];
     // [listeners addObject:[[SMPTEClockListener alloc] init]];
+    // [listeners addObject:[[StudioClockListener alloc] init]];
+    // [listeners addObject:[[MasterClockListener alloc] init]];
     [listeners addObject:[[HeliosListener alloc] init]];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController_iPhone" bundle:nil];
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
@@ -49,11 +51,16 @@
         
         self.window.rootViewController = self.splitViewController;
     }
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 -(id)matchingDevice:(NetDevice *)dev {
+    // Scan in order - and take the first match; as a SMPTE
+    // clock will also match a studio clock. So order matters.
+    //
+    //
     for(NetListener *l in listeners) {
         NetDevice * d = [l match:dev];
         if (d)

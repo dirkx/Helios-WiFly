@@ -73,9 +73,18 @@
 
     [_objects addObject:dev];
     
+    
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_objects count]-1 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    // Auto show the very first item.
+    //
+    if ([_objects count] == 1) {
+        NSIndexPath * firstItem = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self tableView:self.tableView didSelectRowAtIndexPath:firstItem];
+    }
 }
+
 
 -(void)deviceRemoved:(NSNotification *)notif {
     WiFly * dev  = (WiFly *)notif.object;
@@ -99,6 +108,7 @@
         return;
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+
 
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }

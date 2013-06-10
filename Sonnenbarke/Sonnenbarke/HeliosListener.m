@@ -17,6 +17,7 @@ typedef struct {
     uint16_t cct;
     uint16_t red, green, blue;
     uint16_t temp;
+    uint32_t gpio;
 }  __attribute__((packed)) heliosPacket;
 
 NSString * kHeliosDeviceUpdated = @"HeliosDeviceUpdated";
@@ -107,7 +108,9 @@ withFilterContext:(id)filterContext
     heliosPacket * packet = (heliosPacket*)[data bytes];
     
     if (((packet->version) >> 8) != 1) {
-        NSLog(@"%s RECV: Unknown version from: %@:%hu - ignored", __PRETTY_FUNCTION__, host, port);
+        NSLog(@"%s RECV: Packet with unknown version %d.%02d (length %d) from: %@:%hu - ignored", __PRETTY_FUNCTION__,
+              (packet->version >> 8), (packet->version) & 0xFF, [data length],
+              host, port);
         return;
     }
     
@@ -139,8 +142,9 @@ withFilterContext:(id)filterContext
     dev.temp = 1.0 * ntohs(packet->temp);
 
     dev.lastSeen = [NSDate date];
+    dev.gpio = (ntohl(packet->gpio));
+    dev.btn = (dev.gpio & (1<<30)) ? TRUE : FALSE;
     
-    NSLog(@"Update %@", dev);
     [[NSNotificationCenter defaultCenter] postNotificationName:kHeliosDeviceUpdated
                                                         object:dev];
 }
